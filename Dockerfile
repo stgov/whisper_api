@@ -4,10 +4,10 @@ WORKDIR /app
 
 ADD . /app
 
-RUN pip install -r requirements.txt
+RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends ffmpeg
 
-EXPOSE 8000
+RUN pip install -r requirements.txt
 
 ENV MODEL_SIZE=small
 
-CMD ["python", "app.py"]
+CMD ["uvicorn", "app:app" , "--host", "0.0.0.0", "--port", "8000"]

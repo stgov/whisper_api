@@ -1,0 +1,5 @@
+# FILEPATH: /c:/Users/santiago/Desktop/code/whisper_api/.dockerignore
+venv/
+__pycache__/
+audio.wav
+env/
