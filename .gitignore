@@ -1,0 +1,10 @@
+# Ignore venv folder
+venv/
+
+# Ignore __pycache__ directory
+__pycache__/
+
+# Ignore .env file
+.env
+
+audio.wav
