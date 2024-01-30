@@ -12,6 +12,10 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies
+RUN apt-get update && \
+    apt-get -y install uvicorn && \
+    rm -rf /var/lib/apt/lists/*  # Clean up package manager cache
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port
@@ -19,4 +23,3 @@ EXPOSE 80
 
 # Run the application
 CMD uvicorn 'app:app' --host=0.0.0.0 --port=80
-
