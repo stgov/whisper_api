@@ -13,7 +13,7 @@ COPY . /app
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get -y install uvicorn && \
+    apt-get -y install uvicorn ffmpeg && \
     rm -rf /var/lib/apt/lists/*  # Clean up package manager cache
 
 RUN pip install --no-cache-dir -r requirements.txt
