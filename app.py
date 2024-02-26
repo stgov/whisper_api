@@ -12,8 +12,11 @@ async def startup_event():
 
 @app.post("/")
 async def transcription(file: UploadFile):
-  with open("audio.wav", 'wb') as f:
+  filename = file.filename  # Get the filename
+  with open(filename, 'wb') as f:
     while contents := file.file.read(1024 * 1024):
       f.write(contents)
   file.file.close()
-  return model.transcribe("audio.wav")["text"]
+  yield model.transcribe(filename)["text"]
+  os.remove(filename)
+
