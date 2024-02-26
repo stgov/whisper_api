@@ -5,7 +5,7 @@ ARG PYTHON_VERSION=3.10
 FROM python:${PYTHON_VERSION}-slim as base
 
 # Set environment variables
-ENV MODEL_SIZE=small
+ENV MODEL_SIZE=tiny
 
 # Copy application code
 WORKDIR /app
